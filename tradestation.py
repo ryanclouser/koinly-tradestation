@@ -30,6 +30,7 @@ class Trade(object):
 	interest = []
 	debit = []
 	credit = []
+	withdrawal = []
 
 	def __init__(self, t=None):
 		self.executions = []
@@ -37,12 +38,13 @@ class Trade(object):
 		self.interest = []
 		self.debit = []
 		self.credit = []
+		self.withdrawal = []
 
 		if t:
 			self.update(t)
 
 	def update(self, t):
-		if self.interest or self.debit or self.credit:
+		if self.interest or self.debit or self.credit or self.withdrawal:
 			return False
 
 		if self.executions or self.commission:
@@ -60,6 +62,8 @@ class Trade(object):
 			self.debit.append(t)
 		elif t.type == 'Credit':
 			self.credit.append(t)
+		elif t.type == 'Withdrawal':
+			self.withdrawal.append(t)
 		else:
 			raise Exception('Unknown transaction type %s' % (t.type))
 
@@ -118,6 +122,10 @@ def main():
 			for i in t.credit:
 				row = [i.date, i.currency, i.qty, 'fee refund', 'Credit']
 				writer.writerow(row)
+			for i in t.withdrawal:
+				row = [i.date, i.currency, i.qty, 'withdrawal', 'Withdrawal']
+				writer.writerow(row)
+
 
 if __name__ == '__main__':
 	main()

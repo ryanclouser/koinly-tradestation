@@ -1,6 +1,8 @@
 TradeStation Crypto Transaction Parser for [Koinly.io](https://koinly.io/?via=6BCBDC5B)
 ===
 
+**TradeStation Crypto is shutting down and all crypto must be sold or withdrawn!**
+
 [Koinly](https://koinly.io/?via=6BCBDC5B) does not support importing the `Transactions.csv` from TradeStation. They do support the `Tax.csv` file but it misses some transactions and does not include interest.
 
 Requirements
@@ -20,7 +22,7 @@ Usage
 Caveats
 ---
 
-- The parser does not handle incoming crypto deposits or crypto withdraws. It should be easy to add but I have no example data.
+- The parser does not handle incoming crypto deposits. It should be easy to add but I have no example data.
 
 Disclaimer
 ---
